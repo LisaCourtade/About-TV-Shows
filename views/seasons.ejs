@@ -22,9 +22,15 @@
                 <% if (s.image) { %>
                     <img class="season-image" src="<%=s.image.medium%>" alt="">
                 <% } %>
-                <a href="http://localhost:3000/tv-shows/<%=s.id%>/episodes">
-                    Season <%= s.number %> 
-                </a>
+                <% if (s.name !== "") { %>
+                    <a href="http://localhost:3000/tv-shows/<%=s.id%>/episodes">
+                        <%= s.name %> 
+                    </a>
+                <% } else { %>
+                    <a href="http://localhost:3000/tv-shows/<%=s.id%>/episodes">
+                        Season <%= s.number %> 
+                    </a>
+                <% } %>   
             </div>
         <% } %> 
     </div>

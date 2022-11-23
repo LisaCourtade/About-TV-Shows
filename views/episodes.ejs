@@ -29,7 +29,9 @@
                     <div class="chan-date-box">
                     <h4>Airdate: <%= e.airdate %> </h4>
                     </div>
-                    <p>Summary: <%- e.summary %></p>
+                    <% if (e.summary !== null) { %>
+                        <p>Summary: <%- e.summary %></p>
+                    <% } %>
                 </div> 
             </div>
         <% } %> 
