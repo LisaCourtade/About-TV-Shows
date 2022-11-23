@@ -9,10 +9,16 @@
 </head>
 
 <body>
+    <nav class="nav-bar">
+        <a class="go-home-link" href="http://localhost:3000/tv-shows">
+            <h1><span class="about">About</span>TV-SHOWS</h1>
+        </a>
+    </nav>
+
     <div id="result-container">
         <div id="img-container">
             <% if (showData.image) { %>
-                <img class="li-image" src="<%=showData.image.medium%>" alt="">
+                <img class="show-image" src="<%=showData.image.medium%>" alt="">
             <% } %>
         </div>
 

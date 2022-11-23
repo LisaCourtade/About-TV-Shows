@@ -18,18 +18,12 @@ h1 {
     text-shadow: #9bffdc96 1px 0 15px;
 }
 
-#about {
+.about {
     writing-mode: vertical-rl;
     transform:scale(-1);
     color: #33c592;
     font-size: 0.25em;
 }
-
-/* #search-form {
-    margin: 0.5em;
-    font-size: 1.5em;
-    height: 2em;
-} */
 
 #search-form {
     display: flex;
@@ -107,6 +101,10 @@ h1 {
     color: #33c592;
 }
 
+.go-home-link {
+    text-decoration: none;
+}
+
 #result-container {
     margin: 10px;
     display: flex;
@@ -116,6 +114,12 @@ h1 {
 
 #img-container{
     padding: 0.5em;
+}
+
+.show-image {
+    width: 240px;
+    height: auto;
+    margin: 10px;  
 }
 
 #info-container {
@@ -161,12 +165,39 @@ h2 {
     text-justify: inter-word;
 }
 
-@media (min-width: 550px) {
+
+@media (min-width: 640px) {
+    #result-container {
+        flex-direction: row;
+        align-items: start;
+    }
+}
+
+@media (min-width: 750px) and (orientation: landscape) {
     h1 {
         font-size: 5em;
     }
     
-    #result-container {
-        flex-direction: row;
+}
+
+@media (min-width: 900px) and (orientation: landscape) {
+    .nav-bar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0.3em;
     }
+
+    h1 {
+        font-size: 5em;
+        width: 380px;
+        margin-right: 0.5em;
+    }
+    
+    #search-form {
+        height: fit-content;
+        display: inline-flex;
+        justify-content: center;
+    }
+
 }
