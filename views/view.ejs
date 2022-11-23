@@ -15,8 +15,8 @@
         </a>
     </nav>
 
-    <div id="result-container">
-        <div id="img-container">
+    <div class="result-container">
+        <div>
             <% if (showData.image) { %>
                 <img class="show-image" src="<%=showData.image.medium%>" alt="">
             <% } %>
@@ -26,7 +26,7 @@
             <h2><%=showData.name.toUpperCase()%></h2>
             <% const showGenres = showData.genres %> 
             <h3 class="genres"><%= showGenres.join(", ") %></h3>
-            <div id="chan-date-box">
+            <div class="chan-date-box">
                 <% if (showData.network) { %>
                     <% const showCountry = showData.network.country.name; %>
                     <% const showNetwork = showData.network.name; %>
@@ -52,6 +52,8 @@
             <% if (showData.rating.average !== null) { %>
             <h3 id="rating">Rating: <%=showData.rating.average%></h3>
             <% } %> 
+
+            <a href="http://localhost:3000/tv-shows/<%=showData.id%>/seasons">Seasons</a>
         </div>
     </div>
 </body>

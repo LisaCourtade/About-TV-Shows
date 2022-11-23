@@ -105,15 +105,11 @@ h1 {
     text-decoration: none;
 }
 
-#result-container {
+.result-container {
     margin: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-#img-container{
-    padding: 0.5em;
 }
 
 .show-image {
@@ -136,7 +132,7 @@ h2 {
     font-size: 1.1em;
 }
 
-#chan-date-box {
+.chan-date-box {
     background-color: #418fa37b;
     padding: 0.5em;
 }
@@ -165,9 +161,40 @@ h2 {
     text-justify: inter-word;
 }
 
+.seasons-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.episode-container {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid black;
+}
+
+.season {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.episode-image {
+    width: 200px;
+    height: auto;
+    margin: 10px;  
+}
 
 @media (min-width: 640px) {
-    #result-container {
+    .result-container {
+        flex-direction: row;
+        align-items: start;
+    }
+
+    .episode-container {
         flex-direction: row;
         align-items: start;
     }
@@ -201,3 +228,4 @@ h2 {
     }
 
 }
+
