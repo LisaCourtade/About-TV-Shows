@@ -1,0 +1,34 @@
+<%- include('partials/head') %>
+
+<body>
+    <%- include('partials/navbar') %>
+    <ul id="list-of-shows">
+        <% if (shows.length === 0) { %>
+            <p>Sorry, no Tv Shows found for: <%=searchedText%></p>
+        <% } else { %>
+            <% for (let el of shows) { %>
+                <% if (el.show.image) { %>
+                    <li class="list-item">
+                        <a href="http://localhost:3000/tv-shows/<%=el.show.id%>">
+                            <img src="<%=el.show.image.medium%>"
+                            class="li-image"
+                        />
+                        </a>
+                    </li>
+                <% } else { %>
+                    <li class="list-item">
+                        <a href="http://localhost:3000/tv-shows/<%=el.show.id%>" class="no-underline">
+                            <div class="li-image box-no-img">
+                                <h2 class="show-name-li"><%=el.show.name%></h2> 
+                            </div>
+                        </a>
+                    </li>
+                <% } %>
+        <% } %> 
+        <% } %> 
+    </ul>
+      
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+</body>
+</html>

@@ -1,38 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About seasons</title>
-    <link rel="stylesheet" href="/app.css" type="text/css">
-</head>
+<%- include('partials/head') %>
 
 <body>
-    <nav class="nav-bar">
-        <a class="go-home-link" href="http://localhost:3000/tv-shows">
-            <h1><span class="about">About</span>TV-SHOWS</h1>
-        </a>
-    </nav>
+    <%- include('partials/navbar') %>
 
-    <div class="seasons-container">
-        <% const seasons = seasonsData %>
-        <% for (let s of seasons) { %>
-            <div class="season">
-                <% if (s.image) { %>
-                    <img class="season-image" src="<%=s.image.medium%>" alt="">
-                <% } %>
-                <% if (s.name !== "") { %>
-                    <a href="http://localhost:3000/tv-shows/<%=s.id%>/episodes">
-                        <%= s.name %> 
-                    </a>
-                <% } else { %>
-                    <a href="http://localhost:3000/tv-shows/<%=s.id%>/episodes">
-                        Season <%= s.number %> 
-                    </a>
-                <% } %>   
-            </div>
-        <% } %> 
+    <div class="main-result">
+        <div class="seasons-list">
+            <% for (let season of seasonsData) { %>
+                <div class="season">
+                    <% if (season.image) { %>
+                        <img class="season-image" src="<%=season.image.medium%>" alt="">
+                    <% } else {%>
+                        <div class="no-image">Season <%= season.number %></div>
+                    <% } %> 
+                    <% if (season.name !== "") { %>
+                        <a href="http://localhost:3000/tv-shows/<%=season.id%>/episodes">
+                            <%= season.name %> 
+                        </a>
+                    <% } else { %>
+                        <a href="http://localhost:3000/tv-shows/<%=season.id%>/episodes">
+                            Season <%= season.number %> 
+                        </a>
+                    <% } %>   
+                </div>
+            <% } %> 
+        </div>
     </div>
 
 

@@ -10,12 +10,14 @@ app.set('view engine', 'ejs');
 app.use(express.static('local-tv-show'));
 app.use(express.static(__dirname))
 
-
-
-app.get('/tv-shows', (req, res) => {
-    res.sendFile(path.join(__dirname + '/home.html'));
-})
-
+const getShows = async function (searchedText) {
+    try {
+        const result = await axios.get(`https://api.tvmaze.com/search/shows?q=${searchedText}`);
+        return result.data;
+    } catch (e) {
+        console.log(e); 
+    }
+}
 
 const getSingleShow = async function (showId) {
     try {
@@ -26,13 +28,6 @@ const getSingleShow = async function (showId) {
     }
 }
 
-app.get('/tv-shows/:id', async (req, res) => {
-    const { id } = req.params;
-    showData = await getSingleShow(id)
-    res.render('view.ejs', { showData } );    
-})
-
-
 const getSeasons = async function (showId) {
     try {
         const result = await axios.get(`https://api.tvmaze.com/shows/${showId}/seasons`);
@@ -42,11 +37,14 @@ const getSeasons = async function (showId) {
     }
 }
 
-app.get('/tv-shows/:id/seasons', async (req, res) => {
-    const { id } = req.params;
-    seasonsData = await getSeasons(id)
-    res.render('seasons.ejs', { seasonsData } );    
-})
+const getCast = async function (showId) {
+    try {
+        const result = await axios.get(`https://api.tvmaze.com/shows/${showId}/cast`);
+        return result.data;
+    } catch (e) {
+        console.log(e); 
+    }
+}
 
 const getEpisodes = async function (seasonId) {
     try {
@@ -56,6 +54,30 @@ const getEpisodes = async function (seasonId) {
         console.log(e); 
     }
 }
+
+app.get('/home', async (req, res) => {
+    res.sendFile(path.join(__dirname + '/home.html'));
+})
+
+app.get('/tv-shows', async (req, res) => {
+    const searchedText = req.query.title;
+    shows = await getShows(searchedText)
+    res.render('index.ejs', { shows, searchedText });
+})
+
+app.get('/tv-shows/:id', async (req, res) => {
+    const { id } = req.params;
+    showData = await getSingleShow(id);
+    seasonsData = await getSeasons(id);
+    castData = await getCast(id);
+    res.render('view.ejs', { showData, seasonsData, castData } );    
+})
+
+app.get('/tv-shows/:id/seasons', async (req, res) => {
+    const { id } = req.params;
+    seasonsData = await getSeasons(id)
+    res.render('seasons.ejs', { seasonsData } );    
+})
 
 app.get('/tv-shows/:id/episodes', async (req, res) => {
     const { id } = req.params;

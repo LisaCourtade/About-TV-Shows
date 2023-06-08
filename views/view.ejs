@@ -1,59 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About <%=showData.name%></title>
-    <link rel="stylesheet" href="/app.css" type="text/css">
-</head>
+<%- include('partials/head') %>
 
 <body>
-    <nav class="nav-bar">
-        <a class="go-home-link" href="http://localhost:3000/tv-shows">
-            <h1><span class="about">About</span>TV-SHOWS</h1>
-        </a>
-    </nav>
-
-    <div class="result-container">
-        <div>
-            <% if (showData.image) { %>
-                <img class="show-image" src="<%=showData.image.medium%>" alt="">
-            <% } %>
-        </div>
-
-        <div id="info-container">
-            <h2><%=showData.name.toUpperCase()%></h2>
-            <% const showGenres = showData.genres %> 
-            <h3 class="genres"><%= showGenres.join(", ") %></h3>
-            <div class="chan-date-box">
-                <% if (showData.network) { %>
-                    <% const showCountry = showData.network.country.name; %>
-                    <% const showNetwork = showData.network.name; %>
-                    <h3 class="channel"><%=showCountry%> - Network: <%=showNetwork%></h3>
-                <% } %>
-                <% if (showData.webChannel) { %>
-                    <% const showNetwork = showData.webChannel.name; %>
-                    <h3 class="channel">Network: <%=showNetwork%></h3>
-                <% } %>
-                <% if (showData.premiered !==null) { %>
-                    <h3 id="dates">First episode date: <%=showData.premiered%></h3>          
-                    <% if (showData.ended) { %>
-                        <h3 id="dates">Last episode date: <%=showData.ended%></h3>
-                    <% } else { %>
-                        <h3 id="dates">Show still running</h3>
-                    <% } %>
+    <%- include('partials/navbar') %>
+    <div class="main-result">
+        <div class="result-container">
+            <div>
+                <% if (showData.image) { %>
+                    <img class="show-image" src="<%=showData.image.medium%>" alt="">
                 <% } %>
             </div>
-            
 
-            <div class="summary"><%- showData.summary%></div> 
+            <div id="info-container">
+                <h2><%=showData.name.toUpperCase()%></h2>
+                <% const showGenres = showData.genres %> 
+                <h3 class="genres"><%= showGenres.join(", ") %></h3>
+                <div class="chan-date-box">
+                    <% if (showData.network) { %>
+                        <% const showCountry = showData.network.country.name; %>
+                        <% const showNetwork = showData.network.name; %>
+                        <h4 class="channel"><%=showCountry%> - Network: <%=showNetwork%></h4>
+                    <% } %>
+                    <% if (showData.webChannel) { %>
+                        <% const showNetwork = showData.webChannel.name; %>
+                        <h4 class="channel">Network: <%=showNetwork%></h4>
+                    <% } %>
+                    <% if (showData.premiered !==null) { %>
+                        <h4 id="dates">First episode date: <%=showData.premiered%></h4>          
+                        <% if (showData.ended) { %>
+                            <h4 id="dates">Last episode date: <%=showData.ended%></h4>
+                        <% } else { %>
+                            <h4 id="dates">Show still running</h4>
+                        <% } %>
+                    <% } %>
+                </div>
+                
+                <div class="summary"><%- showData.summary%></div> 
 
-            <% if (showData.rating.average !== null) { %>
-            <h3 id="rating">Rating: <%=showData.rating.average%></h3>
+                <% if (showData.rating.average !== null) { %>
+                    <h4 id="rating">Rating: <%=showData.rating.average%></h4>
+                <% } %> 
+
+            </div>
+        </div>              
+        <div class="seasons-container">
+            <h2 class="section-title"><span class="section-icon">|</span>SEASONS</h2>
+            <div class="seasons-list">
+                <% const seasons = seasonsData.length > 12 ? seasonsData.slice(0, 12) : seasonsData; %>
+                <% for (let season of seasons) { %>
+                <div class="season">
+                    <% if (season.image) { %>
+                        <img class="season-image" src="<%=season.image.medium%>" alt="">
+                    <% } else {%>
+                        <div class="no-image">Season <%= season.number %></div>
+                    <% } %>
+                    <% if (season.name !== "") { %>
+                        <a href="http://localhost:3000/tv-shows/<%=season.id%>/episodes">
+                            <%= season.name %> 
+                        </a>
+                    <% } else { %>
+                        <a href="http://localhost:3000/tv-shows/<%=season.id%>/episodes">
+                            Season <%= season.number %> 
+                        </a>
+                    <% } %>  
+                    
+                </div>
             <% } %> 
+            <% if ( seasonsData.length > 12) {%>
+                    <a href="http://localhost:3000/tv-shows/<%=showData.id%>/seasons" class="big-link">
+                       <h2>See more</h2>
+                       <p>+<%=seasonsData.length-12%></p>
+                       <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 320 512"><style>svg{fill:#eaeaea}</style><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+                    </a> 
+                      
+            <% } %> 
+            </div>
+        </div>
 
-            <a href="http://localhost:3000/tv-shows/<%=showData.id%>/seasons">Seasons</a>
+        <div class="cast-container">
+            <h2 class="section-title"><span class="section-icon">|</span>TOP CAST</h2>
+            <div class="cast-list">
+                <% for (let castMember of castData) { %>
+                <div class="cast-info">
+                    <div class="avatar">
+                        <% if (castMember.person.image) { %>
+                            <img class="cast-image" src="<%=castMember.person.image.medium%>" alt="">
+                        <% } %>
+                    </div>
+                    <div>
+                        <h3><%=castMember.person.name%></h3>
+                        <h3 class="char-name"><%=castMember.character.name%></h3>
+                    </div>
+
+                </div>
+            <% } %> 
+            </div>
         </div>
     </div>
 </body>

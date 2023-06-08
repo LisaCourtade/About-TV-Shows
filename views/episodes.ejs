@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About episodes</title>
-    <link rel="stylesheet" href="/app.css" type="text/css">
-</head>
+<%- include('partials/head') %>
 
 <body>
-    <nav class="nav-bar">
-        <a class="go-home-link" href="http://localhost:3000/tv-shows">
-            <h1><span class="about">About</span>TV-SHOWS</h1>
-        </a>
-    </nav>
+    <%- include('partials/navbar') %>
 
     <div>
         <% const episodes = seasonData %>

@@ -25,6 +25,32 @@ h1 {
     font-size: 0.25em;
 }
 
+.no-underline {
+    text-decoration: none;
+}
+
+.no-letter-spacing {
+    letter-spacing: normal;
+}
+
+h2 {
+    font-size: 1.5em;
+    letter-spacing: 0.08em;
+}
+
+h3 {
+    font-size: 1.1em;
+}
+
+h4 {
+    font-weight: 550;
+    font-size: 1em;
+}
+
+p {
+    margin: 0.5em 0;
+}
+
 #search-form {
     display: flex;
     justify-content: center;
@@ -64,6 +90,22 @@ h1 {
     cursor: pointer;
 }
 
+#fav-shows {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0 10px;
+    justify-content: center;
+}
+
+.top-shows {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #list-of-shows {
     display: flex;
     flex-wrap: wrap;
@@ -96,75 +138,23 @@ h1 {
 
 .show-name-li {
     font-weight: 700;
-    font-size: 1.5em;
     text-align: center;
     color: #33c592;
+    letter-spacing: normal;
 }
 
-.go-home-link {
-    text-decoration: none;
-}
-
-.result-container {
-    margin: 10px;
+.home {
+    max-width: 1250px;
+    margin: 30px auto;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-.show-image {
-    width: 240px;
-    height: auto;
-    margin: 10px;  
-}
-
-#info-container {
-    padding: 0.5em;
-}
-
-h2 {
-    font-size: 1.5em;
-    letter-spacing: 0.08em;
-}
-
-.genres {
-    margin: 0.2em 0;
-    font-size: 1.1em;
-}
-
-.chan-date-box {
-    background-color: #418fa37b;
-    padding: 0.5em;
-}
-
-.channel {
-    font-weight: 550;
-    font-size: 1em;
-    margin-bottom: 0.2em;
-}
-
-#dates {
-    font-weight: 550;
-    font-size: 0.9em;
-}
-
-#rating {
-    font-weight: 550;
-    font-size: 1em;
-    margin: 0.4em 0;
-}
-
-.summary {
-    margin: 0.2em 0;
-    font-size: 1.1em;
-    text-align: justify;
-    text-justify: inter-word;
-}
-
-.seasons-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.main-result {
+    max-width: 1250px;
+    margin: 30px auto;
 }
 
 .episode-container {
@@ -175,13 +165,6 @@ h2 {
     border-top: 1px solid black;
 }
 
-.season {
-    padding: 0.5em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .episode-image {
     width: 200px;
     height: auto;
@@ -189,11 +172,6 @@ h2 {
 }
 
 @media (min-width: 640px) {
-    .result-container {
-        flex-direction: row;
-        align-items: start;
-    }
-
     .episode-container {
         flex-direction: row;
         align-items: start;

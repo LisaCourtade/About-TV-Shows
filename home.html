@@ -10,19 +10,25 @@
 <body>
     <nav class="nav-bar">
         <h1><span class="about">About</span>TV-SHOWS</h1>
-    
-        <form id="search-form">
-            <input type="text" placeholder="Title" id="title-searched">
-            <button id="search-button">
+        <form action="http://localhost:3000/tv-shows" id="search-form" method="GET">
+            <input type="text" placeholder="Search title" id="title-searched" name="title" required>
+            <button id="search-button" type="submit">
                 <svg xmlns="http://www.w3.org/2000/svg" id="search-icon" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path fill="#eaeaea" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg>
             </button>
         </form>
     </nav>
 
-    <ul id="list-of-shows"></ul>
+    <div class="home">
+        <h3>Welcome to About TV-Shows!</h3>
+        <p>Search for a tv-show, series or movie and get all information about it.</p>
+
+        <div class="top-shows">
+            <h2 class="no-letter-spacing"># Recent Top Shows</h2>
+            <ul id="fav-shows"></ul> 
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <script src="home.js"></script>
-
+    <script src="/home.js"></script>
 </body>
 </html>
