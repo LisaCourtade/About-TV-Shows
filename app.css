@@ -12,7 +12,7 @@ body {
 h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
-    font-size: 4em;
+    font-size: 6em;
     margin: 0;
     color: #33c592;
     text-shadow: #9bffdc96 1px 0 15px;
@@ -51,43 +51,53 @@ p {
     margin: 0.5em 0;
 }
 
+.home-nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.home-nav::before{
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background: no-repeat center/100% url(homebg.jpeg);
+    opacity: 0.3;
+}
+
+.home-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.home-intro{
+    margin: 2em 0 1.5em 0;
+    text-align: center;
+}
+
 #search-form {
     display: flex;
     justify-content: center;
-    margin: 0.3em 0;
+    margin-bottom: 1em;
     font-size: 1.5em;
 }
 
-#title-searched {
-    outline: none;
-    box-shadow: none;
-    border: none;
-    border-radius: 8px;
-    background-color: #67defc27;
-    width: 260px;
-    height: 30px;
-    margin-right: 0.5em;
-    text-indent: 10px;
-    font-size: 0.8em;
-}
-
-#search-button {
-    outline: none;
-    background-color: #244f5a;
-    width: 35px;
-    border-radius: 10px;
-    border: none;
+.home {
+    max-width: 1250px;
+    margin: 20px auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-}
-
-#search-icon {
-    width: 25px;
-}
-
-#search-button:hover {
-    background-color: #67defc27;
-    cursor: pointer;
+    align-items: center;
 }
 
 #fav-shows {
@@ -99,11 +109,21 @@ p {
 }
 
 .top-shows {
-    margin-top: 2em;
+    margin-top: 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.fav-image {
+    width: 150px;
+    height: auto;
+    margin: 10px;  
+}
+
+.fav-image:hover {
+    cursor: pointer;
 }
 
 #list-of-shows {
@@ -143,15 +163,6 @@ p {
     letter-spacing: normal;
 }
 
-.home {
-    max-width: 1250px;
-    margin: 30px auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .main-result {
     max-width: 1250px;
     margin: 30px auto;
@@ -176,34 +187,5 @@ p {
         flex-direction: row;
         align-items: start;
     }
-}
-
-@media (min-width: 750px) and (orientation: landscape) {
-    h1 {
-        font-size: 5em;
-    }
-    
-}
-
-@media (min-width: 900px) and (orientation: landscape) {
-    .nav-bar{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0.3em;
-    }
-
-    h1 {
-        font-size: 5em;
-        width: 380px;
-        margin-right: 0.5em;
-    }
-    
-    #search-form {
-        height: fit-content;
-        display: inline-flex;
-        justify-content: center;
-    }
-
 }
 

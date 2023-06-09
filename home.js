@@ -10,33 +10,18 @@ const getFavoriteShows = async function () {
     const finalResult = await Promise.all(getfavoriteShows);
 
     for (let show of finalResult) {
-        if (show.image) {
-            const newLi = document.createElement('li');
-            const newImg = document.createElement('img');
-            newImg.src = show.image.medium;
-            newImg.classList.add('li-image');
-            newLi.appendChild(newImg);
-            list.appendChild(newLi);
-            newLi.classList.add('list-item');
-            console.log(show)
-            const showId = show.id;
-            newImg.addEventListener('click', async () => {
-                document.location.href = `http://localhost:3000/tv-shows/${showId}`;
-            })
-        } else {
-            const newLi = document.createElement('li');
-            const newImg = document.createElement('div');
-            newImg.innerHTML = '<div class="show-name-li">' + show.name + '</div>';
-            newImg.classList.add('li-image');
-            newImg.classList.add('box-no-img');
-            newLi.appendChild(newImg);
-            list.appendChild(newLi);
-            newLi.classList.add('list-item');
-            const showId = show.id;
-            newImg.addEventListener('click', async () => {
-                document.location.href = `http://localhost:3000/tv-shows/${showId}`;
-            })
-        }
+        const newLi = document.createElement('li');
+        const newImg = document.createElement('img');
+        newImg.src = show.image.medium;
+        newImg.classList.add('fav-image');
+        newLi.appendChild(newImg);
+        list.appendChild(newLi);
+        newLi.classList.add('list-item');
+        console.log(show)
+        const showId = show.id;
+        newImg.addEventListener('click', async () => {
+            document.location.href = `http://localhost:3000/tv-shows/${showId}`;
+        })
     }    
 }
 
