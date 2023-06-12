@@ -75,11 +75,11 @@
                         <div class="no-image">Season <%= season.number %></div>
                     <% } %>
                     <% if (season.name !== "") { %>
-                        <a href="http://localhost:3000/tv-shows/<%=season.id%>/episodes">
+                        <a href="/tv-shows/<%=season.id%>/episodes">
                             <%= season.name %> 
                         </a>
                     <% } else { %>
-                        <a href="http://localhost:3000/tv-shows/<%=season.id%>/episodes">
+                        <a href="/tv-shows/<%=season.id%>/episodes">
                             Season <%= season.number %> 
                         </a>
                     <% } %>  
@@ -87,7 +87,7 @@
                 </div>
             <% } %> 
             <% if ( seasonsData.length > 14) {%>
-                    <a href="http://localhost:3000/tv-shows/<%=showData.id%>/seasons" class="big-link">
+                    <a href="/tv-shows/<%=showData.id%>/seasons" class="big-link">
                        <h2>See more</h2>
                        <p>+<%=seasonsData.length-12%></p>
                        <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 320 512"><style>svg{fill:#eaeaea}</style><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>

@@ -55,7 +55,7 @@ const getEpisodes = async function (seasonId) {
     }
 }
 
-app.get('/home', async (req, res) => {
+app.get('/', async (req, res) => {
     res.sendFile(path.join(__dirname + '/home.html'));
 })
 
@@ -88,7 +88,7 @@ app.get('/tv-shows/:id/episodes', async (req, res) => {
 })
 
 
-app.listen(443, () => {
-    console.log('listening on port 443')
+app.listen(3000, () => {
+    console.log('listening on port 3000')
 })
 

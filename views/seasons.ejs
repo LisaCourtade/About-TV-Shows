@@ -15,11 +15,11 @@
                         <div class="no-image">Season <%= season.number %></div>
                     <% } %> 
                     <% if (season.name !== "") { %>
-                        <a href="http://localhost:3000/tv-shows/<%=season.id%>/episodes">
+                        <a href="/tv-shows/<%=season.id%>/episodes">
                             <%= season.name %> 
                         </a>
                     <% } else { %>
-                        <a href="http://localhost:3000/tv-shows/<%=season.id%>/episodes">
+                        <a href="/tv-shows/<%=season.id%>/episodes">
                             Season <%= season.number %> 
                         </a>
                     <% } %>   

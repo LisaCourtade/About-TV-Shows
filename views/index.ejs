@@ -11,7 +11,7 @@
                 <% for (let el of shows) { %>
                     <% if (el.show.image) { %>
                         <li class="list-item">
-                            <a href="http://localhost:3000/tv-shows/<%=el.show.id%>">
+                            <a href="/tv-shows/<%=el.show.id%>">
                                 <img src="<%=el.show.image.medium%>"
                                 class="li-image"
                             />
@@ -19,7 +19,7 @@
                         </li>
                     <% } else { %>
                         <li class="list-item">
-                            <a href="http://localhost:3000/tv-shows/<%=el.show.id%>" class="no-underline">
+                            <a href="/tv-shows/<%=el.show.id%>" class="no-underline">
                                 <div class="li-image box-no-img">
                                     <h2 class="show-name-li"><%=el.show.name%></h2> 
                                 </div>

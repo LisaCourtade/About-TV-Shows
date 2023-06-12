@@ -19,7 +19,7 @@ const getFavoriteShows = async function () {
     newLi.classList.add("list-item");
     const showId = show.id;
     newImg.addEventListener("click", async () => {
-      document.location.href = `http://localhost:3000/tv-shows/${showId}`;
+      document.location.href = `/tv-shows/${showId}`;
     });
   }
 };
