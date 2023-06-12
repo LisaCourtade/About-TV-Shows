@@ -21,7 +21,7 @@ const getShows = async function (searchedText) {
 
 const getSingleShow = async function (showId) {
     try {
-        const result = await axios.get(`https://api.tvmaze.com/shows/${showId}`);
+        const result = await axios.get(`https://api.tvmaze.com/shows/${showId}?embed=crew`);
         return result.data;
     } catch (e) {
         console.log(e); 
@@ -61,27 +61,29 @@ app.get('/home', async (req, res) => {
 
 app.get('/tv-shows', async (req, res) => {
     const searchedText = req.query.title;
-    shows = await getShows(searchedText)
+    const shows = await getShows(searchedText);
     res.render('index.ejs', { shows, searchedText });
 })
 
 app.get('/tv-shows/:id', async (req, res) => {
     const { id } = req.params;
-    showData = await getSingleShow(id);
-    seasonsData = await getSeasons(id);
-    castData = await getCast(id);
+    const showData = await getSingleShow(id);
+    const seasonsData = await getSeasons(id);
+    const castData = await getCast(id);
     res.render('view.ejs', { showData, seasonsData, castData } );    
 })
 
 app.get('/tv-shows/:id/seasons', async (req, res) => {
     const { id } = req.params;
-    seasonsData = await getSeasons(id)
-    res.render('seasons.ejs', { seasonsData } );    
+    const seasonsData = await getSeasons(id);
+    const showData = await getSingleShow(id);
+    const showImage = showData.image ? showData.image.medium : null;
+    res.render('seasons.ejs', { seasonsData, showImage } );    
 })
 
 app.get('/tv-shows/:id/episodes', async (req, res) => {
     const { id } = req.params;
-    seasonData = await getEpisodes(id)
+    const seasonData = await getEpisodes(id);
     res.render('episodes.ejs', { seasonData } );    
 })
 

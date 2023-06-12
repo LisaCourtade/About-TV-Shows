@@ -17,7 +17,6 @@ const getFavoriteShows = async function () {
     newLi.appendChild(newImg);
     list.appendChild(newLi);
     newLi.classList.add("list-item");
-    console.log(show);
     const showId = show.id;
     newImg.addEventListener("click", async () => {
       document.location.href = `http://localhost:3000/tv-shows/${showId}`;

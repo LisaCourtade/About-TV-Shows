@@ -9,6 +9,8 @@
                 <div class="season">
                     <% if (season.image) { %>
                         <img class="season-image" src="<%=season.image.medium%>" alt="">
+                    <% } else if (showImage) { %>
+                        <img class="season-image" src="<%=showImage%>" alt="">
                     <% } else {%>
                         <div class="no-image">Season <%= season.number %></div>
                     <% } %> 

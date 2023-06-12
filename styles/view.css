@@ -140,6 +140,16 @@
     margin-top: -15%;
 }
 
+.cast-no-image {
+    width: 80px;
+    height: 80px;
+    background-color: #418fa37b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
 .avatar {
     width: 80px;
     min-width: 80px;
