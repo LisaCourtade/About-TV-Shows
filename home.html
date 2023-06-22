@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Tv-shows</title>
+    <title>About TV-Shows</title>
+    <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
     <link rel="stylesheet" href="app.css" type="text/css">
-    <link rel="stylesheet" href="/styles/navbar.css" type="text/css">
+    <link rel="stylesheet" href="/public/styles/navbar.css" type="text/css">
 </head>
 
-<body>
+<body onload="removeSpinner()">
+    <div id="spinner"></div>
     <nav class="home-nav">
         <div class="home-text">
             <h1><span class="about">About</span>TV-SHOWS</h1>
@@ -41,7 +43,8 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <script src="/home.js"></script>
+    <script src="public/javascript/home.js"></script>
+    <script src="public/javascript/spinner.js"></script>
 </body>
 
 </html>

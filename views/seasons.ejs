@@ -1,34 +1,30 @@
 <%- include('partials/head') %>
 
-<body>
-    <%- include('partials/navbar') %>
-
-    <div class="main-result">
-        <div class="seasons-list">
-            <% for (let season of seasonsData) { %>
-                <div class="season">
-                    <% if (season.image) { %>
-                        <img class="season-image" src="<%=season.image.medium%>" alt="">
-                    <% } else if (showImage) { %>
-                        <img class="season-image" src="<%=showImage%>" alt="">
-                    <% } else {%>
-                        <div class="no-image">Season <%= season.number %></div>
-                    <% } %> 
-                    <% if (season.name !== "") { %>
-                        <a href="/tv-shows/<%=season.id%>/episodes">
-                            <%= season.name %> 
-                        </a>
-                    <% } else { %>
-                        <a href="/tv-shows/<%=season.id%>/episodes">
-                            Season <%= season.number %> 
-                        </a>
-                    <% } %>   
-                </div>
-            <% } %> 
-        </div>
+<div class="main-result">
+    <div class="seasons-list">
+        <% for (let season of seasonsData) { %>
+            <div class="season">
+                <% if (season.image) { %>
+                    <img class="season-image" src="<%=season.image.medium%>" alt="">
+                <% } else if (showImage) { %>
+                    <img class="season-image" src="<%=showImage%>" alt="">
+                <% } else {%>
+                    <div class="no-image">Season <%= season.number %></div>
+                <% } %> 
+                <% if (season.name !== "") { %>
+                    <a href="/tv-shows/<%=season.id%>/episodes">
+                        <%= season.name %> 
+                    </a>
+                <% } else { %>
+                    <a href="/tv-shows/<%=season.id%>/episodes">
+                        Season <%= season.number %> 
+                    </a>
+                <% } %>   
+            </div>
+        <% } %> 
     </div>
+</div>
 
 
 </body>
-
 </html>

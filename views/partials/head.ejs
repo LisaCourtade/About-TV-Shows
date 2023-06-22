@@ -5,7 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About TV-Shows</title>
+    <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
     <link rel="stylesheet" href="/app.css" type="text/css">
-    <link rel="stylesheet" href="/styles/view.css" type="text/css">
-    <link rel="stylesheet" href="/styles/navbar.css" type="text/css">
+    <link rel="stylesheet" href="/public/styles/view.css" type="text/css">
+    <link rel="stylesheet" href="/public/styles/navbar.css" type="text/css">
+    <script src="../../public/javascript/spinner.js"></script>
 </head>
+
+<body onload="removeSpinner()">
+    <%- include('./navbar') %>
+    <div id="spinner"></div>

@@ -1,30 +1,26 @@
 <%- include('partials/head') %>
 
-<body>
-    <%- include('partials/navbar') %>
-
-    <div>
-        <% const episodes = seasonData %>
-        <% for (let e of episodes) { %>
-            <div class="episode-container">
-                 <div class="img-container">
-                    <% if (e.image) { %>
-                        <img class="episode-image" src="<%=e.image.medium%>" alt="">
-                    <% } %>
-                </div>
-                <div id="info-container">
-                    <h3>Episode <%= e.number %> - <%= e.name %> </h3>
-                    <div class="chan-date-box">
-                    <h4>Airdate: <%= e.airdate %> </h4>
-                    </div>
-                    <% if (e.summary !== null) { %>
-                        <p>Summary: <%- e.summary %></p>
-                    <% } %>
-                </div> 
+<div>
+    <% const episodes = seasonData %>
+    <% for (let e of episodes) { %>
+        <div class="episode-container">
+                <div class="img-container">
+                <% if (e.image) { %>
+                    <img class="episode-image" src="<%=e.image.medium%>" alt="">
+                <% } %>
             </div>
-        <% } %> 
-    </div>
-    
-
+            <div id="info-container">
+                <h3>Episode <%= e.number %> - <%= e.name %> </h3>
+                <div class="chan-date-box">
+                <h4>Airdate: <%= e.airdate %> </h4>
+                </div>
+                <% if (e.summary !== null) { %>
+                    <p>Summary: <%- e.summary %></p>
+                <% } %>
+            </div> 
+        </div>
+    <% } %> 
+</div>
 
 </body>
+</html>

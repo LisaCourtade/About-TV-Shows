@@ -7,7 +7,7 @@ const axios = require('axios');
 app.set('view engine', 'ejs');
 
 // to make sure css and js file are added and work
-app.use(express.static('local-tv-show'));
+app.use(express.static(path.join(__dirname + '/public')));
 app.use(express.static(__dirname))
 
 const getShows = async function (searchedText) {

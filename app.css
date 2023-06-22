@@ -67,7 +67,7 @@ p {
     right: 0px;
     bottom: 0px;
     left: 0px;
-    background: no-repeat center/100% url(homebg.jpeg);
+    background: no-repeat center/100% url(/public/homebg.jpeg);
     opacity: 0.3;
 }
 
@@ -180,6 +180,32 @@ p {
     width: 200px;
     height: auto;
     margin: 10px;  
+}
+
+#spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    margin: -76px 0 0 -76px;
+    border: 12px solid #33c592;
+    border-radius: 50%;
+    border-top: 12px solid #f3f3f3;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 @media (min-width: 640px) {
